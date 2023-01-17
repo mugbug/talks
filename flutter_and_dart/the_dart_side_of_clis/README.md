@@ -40,6 +40,27 @@ $ the_dart_side_of_clis --version
 $ the_dart_side_of_clis --help
 ```
 
+## Creating a new command 📝
+
+1. Install local bricks (templates)
+
+```sh
+$ mason get
+```
+
+2. Use mason's VSCode extension to create a new local brick and choose the `command` one.
+
+3. Modify as you'd like and reference it on `TheDartSideOfClisCommandRunner`.
+
+4. Install it and give it a try:
+
+```sh
+$ make install
+
+# test it out
+$ the_dart_side_of_clis <your-command>
+```
+
 ## Running Tests with coverage 🧪
 
 To run all unit tests use the following command:
