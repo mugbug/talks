@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'package:path/path.dart' as path;
+
 import 'package:args/command_runner.dart';
 import 'package:mason_logger/mason_logger.dart';
 
@@ -13,18 +16,11 @@ class TalkCommand extends Command<int> {
   /// {@macro talk_command}
   TalkCommand({
     Logger? logger,
-  }) : _logger = logger ?? Logger() {
-    // TODO: add the command arguments here
-    argParser.addFlag(
-      'cyan',
-      abbr: 'c',
-      help: 'Prints the same joke, but in cyan',
-      negatable: false,
-    );
-  }
+  }) : _logger = logger ?? Logger();
 
   @override
-  String get description => 'Shows the content of the presentation this CLI was created for';
+  String get description =>
+      'Shows the content of the presentation this CLI was created for';
 
   @override
   String get name => 'talk';
@@ -33,19 +29,46 @@ class TalkCommand extends Command<int> {
 
   @override
   Future<int> run() async {
-    // TODO: for logging we use mason_logger: https://pub.dev/packages/mason_logger
-    var output = 'Which unicorn has a cold? The Achoo-nicorn!';
-    if (argResults?['cyan'] == true) {
-      output = lightCyan.wrap(output)!;
+    final result = await Process.run(
+      'pwd',
+      [],
+    );
+
+    _logger.info(result.stdout.toString());
+
+    final presentationFile = File(
+      path.join(
+        'lib',
+        'src',
+        'slides',
+        'full_presentation.md',
+      ),
+    );
+
+    final fullPresentation = await presentationFile.readAsString();
+
+    final slides = fullPresentation.split('---')
+      ..removeAt(0)
+      ..removeAt(0);
+
+    await clearTerminal();
+
+    for (final slide in slides) {
+      _logger
+        ..success(slide)
+        ..prompt('>');
+      await clearTerminal();
     }
-    _logger.info(output);
 
-    final progress = _logger.progress('Trying to understand the joke');
-    await Future.delayed(const Duration(seconds: 1));
-    progress.complete('kkkk nice');
+    _logger.progress("That's all folks, thanks!").complete();
 
-    // TODO: we can use some custom CLI here like [GitHub] or [Fastlane]
-    // that we can find/create on the `cli/` folder
     return ExitCode.success.code;
+  }
+
+  Future<void> clearTerminal() async {
+    final clearCommand = Platform.isWindows ? 'cls' : 'clear';
+
+    final result = await Process.run(clearCommand, [], runInShell: true);
+    _logger.info(result.stdout.toString());
   }
 }
