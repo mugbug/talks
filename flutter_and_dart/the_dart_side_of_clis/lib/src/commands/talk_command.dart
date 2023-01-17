@@ -1,10 +1,13 @@
 import 'package:args/command_runner.dart';
 import 'package:mason_logger/mason_logger.dart';
 
+// TODO: add this command as a subcommand to TheDartSideOfClisCommandRunner or another
+// For more info, check this docs: https://pub.dev/packages/args
+
 /// {@template talk_command}
 ///
 /// `the_dart_side_of_clis talk`
-///
+/// Shows the content of the presentation this CLI was created for
 /// {@endtemplate}
 class TalkCommand extends Command<int> {
   /// {@macro talk_command}
@@ -21,7 +24,7 @@ class TalkCommand extends Command<int> {
   }
 
   @override
-  String get description => '';
+  String get description => 'Shows the content of the presentation this CLI was created for';
 
   @override
   String get name => 'talk';
