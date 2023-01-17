@@ -23,5 +23,9 @@ environment:
 vars:
   name:
     type: string
-    description: Your new command name
-    prompt: What is the name of the command you want to create?
+    description: Your command's name
+    prompt: What is the command's name?
+  description:
+    type: string
+    description: Your command's description
+    prompt: What does this command do?
