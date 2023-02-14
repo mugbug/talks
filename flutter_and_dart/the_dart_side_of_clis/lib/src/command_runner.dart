@@ -2,7 +2,9 @@ import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 import 'package:mason_logger/mason_logger.dart';
 import 'package:pub_updater/pub_updater.dart';
+import 'package:the_dart_side_of_clis/src/cli/cli.dart';
 import 'package:the_dart_side_of_clis/src/commands/commands.dart';
+import 'package:the_dart_side_of_clis/src/commands/semantic_linter_command.dart';
 import 'package:the_dart_side_of_clis/src/version.dart';
 
 const executableName = 'the_dart_side_of_clis';
@@ -24,6 +26,7 @@ class TheDartSideOfClisCommandRunner extends CommandRunner<int> {
   })  : _logger = logger ?? Logger(),
         _pubUpdater = pubUpdater ?? PubUpdater(),
         super(executableName, description) {
+    final github = GitHub(_logger);
     // Add root options and flags
     argParser
       ..addFlag(
@@ -40,6 +43,12 @@ class TheDartSideOfClisCommandRunner extends CommandRunner<int> {
     // Add sub commands
     addCommand(TalkCommand(logger: _logger));
     addCommand(SampleCommand(logger: _logger));
+    addCommand(
+      SemanticLinterCommand(
+        logger: _logger,
+        github: github,
+      ),
+    );
     addCommand(UpdateCommand(logger: _logger, pubUpdater: _pubUpdater));
   }
 

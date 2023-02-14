@@ -10,6 +10,7 @@ dependencies:
   args: ^2.3.1
   mason_logger: ^0.2.0
   path: ^1.8.3
+  process_run: ^0.12.5+2
   pub_updater: ^0.2.1
 
 dev_dependencies:
