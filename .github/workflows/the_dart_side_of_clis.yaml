@@ -1,4 +1,4 @@
-name: pull_request
+name: the_dart_side_of_clis
 
 on:
   pull_request:
@@ -8,6 +8,8 @@ on:
 jobs:
   semantic-pull-request:
     runs-on: ubuntu-latest
+    env:
+      PROJECT_PATH: flutter_and_dart/the_dart_side_of_clis
     steps:
       - name: 📚 Git Checkout
         uses: actions/checkout@v2
@@ -22,13 +24,13 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
 
-
       - name: 📦 Install Dependencies
         run: |
-          dart pub get
+          cd $PROJECT_PATH && dart pub get
 
       - name: 🤖 Install CLI
-        run: make install
+        run: |
+          cd $PROJECT_PATH && make install
 
       - name: 👀 Verify PR title formatting
         run: the_dart_side_of_clis semantic_linter -m 'fix example'
