@@ -5,11 +5,7 @@ on:
     paths:
       - 'flutter_and_dart/the_dart_side_of_clis/**'
 
-permissions:
-  contents: read
-  id-token: read
-  pull-requests: write
-  repository-projects: read
+permissions: write-all
 
 jobs:
   semantic-pull-request:
