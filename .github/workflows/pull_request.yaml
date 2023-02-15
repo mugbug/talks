@@ -17,8 +17,11 @@ jobs:
         with:
           sdk: "stable"
 
-      - name: ✍️ Log current context info
-        run: json(github)
+      - name: echo $github
+        run: echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+
 
       - name: 📦 Install Dependencies
         run: |
