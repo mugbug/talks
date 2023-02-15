@@ -4,6 +4,7 @@ import 'package:mason_logger/mason_logger.dart';
 import 'package:pub_updater/pub_updater.dart';
 import 'package:the_dart_side_of_clis/src/cli/cli.dart';
 import 'package:the_dart_side_of_clis/src/commands/commands.dart';
+import 'package:the_dart_side_of_clis/src/commands/open_url_command.dart';
 import 'package:the_dart_side_of_clis/src/version.dart';
 
 const executableName = 'the_dart_side_of_clis';
@@ -23,6 +24,7 @@ class TheDartSideOfClisCommandRunner extends CommandRunner<int> {
     Logger? logger,
     PubUpdater? pubUpdater,
     GitHub? github,
+    XCRun? xcrun,
   })  : _logger = logger ?? Logger(),
         _pubUpdater = pubUpdater ?? PubUpdater(),
         super(executableName, description) {
@@ -47,6 +49,10 @@ class TheDartSideOfClisCommandRunner extends CommandRunner<int> {
         github: github ?? GitHub(_logger),
       ),
     );
+    addCommand(OpenUrlCommand(
+      logger: _logger,
+      xcrun: xcrun ?? XCRun(_logger),
+    ));
     addCommand(UpdateCommand(logger: _logger, pubUpdater: _pubUpdater));
   }
 

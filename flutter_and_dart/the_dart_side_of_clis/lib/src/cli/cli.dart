@@ -9,6 +9,7 @@ import 'package:process_run/shell.dart';
 // import 'package:process_run/shell.dart';
 
 part 'github_cli.dart';
+part 'xcrun_cli.dart';
 
 const _asyncRunZoned = runZoned;
 
