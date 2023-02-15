@@ -2,6 +2,11 @@ name: the_dart_side_of_clis
 
 on:
   pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+
     paths:
       - 'flutter_and_dart/the_dart_side_of_clis/**'
 
