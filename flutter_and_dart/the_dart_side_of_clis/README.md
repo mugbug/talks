@@ -80,6 +80,16 @@ $ make lcov
 
 ---
 
+# References
+
+- [command-line interface (CLI)][1]
+- [marp gist][2] (the tool used for these slides)
+- [very_good_cli][3] (used for generating the template and also as a code reference on how to code and test a CLI)
+
+[1]: https://www.techtarget.com/searchwindowsserver/definition/command-line-interface-CLI#:~:text=The%20MS%2DDOS%20operating%20system,can%20support%20command%2Dline%20interfaces.
+[2]: https://gist.github.com/yhatt/a7d33a306a87ff634df7bb96aab058b5
+[3]: https://github.com/VeryGoodOpenSource/very_good_cli
+
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
 [very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg

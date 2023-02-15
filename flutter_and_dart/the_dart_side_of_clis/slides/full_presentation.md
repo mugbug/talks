@@ -78,7 +78,7 @@ A tool that knows how to execute one or more commands and may accept extra argum
 
 - [command-line interface (CLI)][1]
 - [marp gist][2] (the tool used for these slides)
-- [very_good_cli][3] (used for generating this template and also as a code reference on how to code a CLI)
+- [very_good_cli][3] (used for generating this template and also as a code reference on how to code and test a CLI)
 
 ---
 
