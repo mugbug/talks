@@ -65,7 +65,7 @@ Hello, @$author!
 
 The PR title message does not match the conventions. Try renaming it to follow this pattern:
 
-  type(JIRA-123)!: description
+    type(JIRA-123)!: description
 ''',
           prNumber: prNumber,
         );
