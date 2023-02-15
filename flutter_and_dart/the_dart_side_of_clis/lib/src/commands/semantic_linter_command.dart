@@ -71,7 +71,7 @@ The PR title message does not match the conventions. Try renaming it to follow t
         );
       }
 
-      return ExitCode.usage.code;
+      return ExitCode.tempFail.code;
     }
 
     validationProgress.complete(

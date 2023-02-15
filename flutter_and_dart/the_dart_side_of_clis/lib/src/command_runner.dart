@@ -23,10 +23,10 @@ class TheDartSideOfClisCommandRunner extends CommandRunner<int> {
   TheDartSideOfClisCommandRunner({
     Logger? logger,
     PubUpdater? pubUpdater,
+    GitHub? github,
   })  : _logger = logger ?? Logger(),
         _pubUpdater = pubUpdater ?? PubUpdater(),
         super(executableName, description) {
-    final github = GitHub(_logger);
     // Add root options and flags
     argParser
       ..addFlag(
@@ -46,7 +46,7 @@ class TheDartSideOfClisCommandRunner extends CommandRunner<int> {
     addCommand(
       SemanticLinterCommand(
         logger: _logger,
-        github: github,
+        github: github ?? GitHub(_logger),
       ),
     );
     addCommand(UpdateCommand(logger: _logger, pubUpdater: _pubUpdater));
