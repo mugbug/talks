@@ -46,7 +46,7 @@ class SemanticLinterCommand extends Command<int> {
     );
 
     final regex = RegExp(
-      r'^(feat|fix)(\((([a-zA-Z]+\-[0-9]+))\))!?:(.*)$',
+      r'^(feat|fix|docs)(\((([a-zA-Z]+\-[0-9]+))\))!?:(.*)$',
     );
     final found = regex.hasMatch(message);
 
