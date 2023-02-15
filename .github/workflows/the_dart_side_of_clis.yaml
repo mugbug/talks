@@ -36,4 +36,4 @@ jobs:
           cd $PROJECT_PATH && make install
 
       - name: 👀 Verify PR title formatting
-        run: the_dart_side_of_clis semantic_linter -m "$PR_TITLE" --pr-number $PR_NUMBER
+        run: the_dart_side_of_clis semantic_linter -m "$PR_TITLE" --pr-number $PR_NUMBER --verbose
