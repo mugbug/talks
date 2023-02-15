@@ -12,7 +12,7 @@ jobs:
       PROJECT_PATH: flutter_and_dart/the_dart_side_of_clis
       PR_TITLE: ${{ github.event.pull_request.title }}
       PR_NUMBER: ${{ github.event.pull_request.number }}
-      GH_TOKEN: ${{ github.token }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: 📚 Git Checkout
         uses: actions/checkout@v2
