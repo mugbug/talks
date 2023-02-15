@@ -1,12 +1,11 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 
 // import 'package:equatable/equatable.dart';
 import 'package:mason_logger/mason_logger.dart';
 import 'package:meta/meta.dart';
-import 'package:path/path.dart' as p;
 import 'package:process_run/shell.dart';
+
 // import 'package:process_run/shell.dart';
 
 part 'github_cli.dart';
