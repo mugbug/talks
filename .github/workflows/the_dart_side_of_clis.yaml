@@ -5,6 +5,9 @@ on:
     paths:
       - 'flutter_and_dart/the_dart_side_of_clis/**'
 
+permissions:
+  pull-requests: write
+
 jobs:
   semantic-pull-request:
     runs-on: ubuntu-latest
