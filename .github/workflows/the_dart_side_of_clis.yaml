@@ -1,0 +1,49 @@
+name: the_dart_side_of_clis
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+    paths:
+      - 'flutter_and_dart/the_dart_side_of_clis/**'
+
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read  # This is required for actions/checkout
+  pull-requests: write # This is required to comment on PRs
+
+jobs:
+  semantic-pull-request:
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_PATH: flutter_and_dart/the_dart_side_of_clis
+      PR_TITLE: ${{ github.event.pull_request.title }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v2
+
+      - name: 🎯 Setup Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: "stable"
+
+      - name: echo $github
+        run: echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+
+      - name: 📦 Install Dependencies
+        run: |
+          cd $PROJECT_PATH && dart pub get
+
+      - name: 🤖 Install CLI
+        run: |
+          cd $PROJECT_PATH && make install
+
+      - name: 👀 Verify PR title formatting
+        run: the_dart_side_of_clis semantic_linter -m "$PR_TITLE" --pr-number $PR_NUMBER --verbose
