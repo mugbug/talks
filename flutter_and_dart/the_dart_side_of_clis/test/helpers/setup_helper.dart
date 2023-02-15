@@ -12,6 +12,8 @@ import 'package:the_dart_side_of_clis/src/command_runner.dart';
 
 class _MockGitHub extends Mock implements GitHub {}
 
+class _MockXCRun extends Mock implements XCRun {}
+
 class _MockLogger extends Mock implements Logger {}
 
 class _MockProgress extends Mock implements Progress {}
@@ -28,9 +30,11 @@ class MockContainer {
     required this.progress,
     required this.pubUpdater,
     required this.github,
+    required this.xcrun,
   });
 
   final _MockGitHub github;
+  final _MockXCRun xcrun;
   final _MockLogger logger;
   final _MockProgress progress;
   final _MockPubUpdater pubUpdater;
@@ -66,12 +70,14 @@ void Function() withRunner(
       progress: _MockProgress(),
       pubUpdater: _MockPubUpdater(),
       github: _MockGitHub(),
+      xcrun: _MockXCRun(),
     );
 
     final commandRunner = TheDartSideOfClisCommandRunner(
       logger: mocks.logger,
       pubUpdater: mocks.pubUpdater,
       github: mocks.github,
+      xcrun: mocks.xcrun,
     );
 
     when(() => mocks.logger.progress(any())).thenReturn(mocks.progress);
