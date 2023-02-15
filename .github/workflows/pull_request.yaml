@@ -17,6 +17,9 @@ jobs:
         with:
           sdk: "stable"
 
+      - name: ✍️ Log current context info
+        run: json(github)
+
       - name: 📦 Install Dependencies
         run: |
           dart pub get
