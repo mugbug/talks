@@ -120,6 +120,11 @@ The PR title message does not match the conventions. Try renaming it to follow t
     );
 
     test(
+      'when there is a correctly pr title for "docs"',
+      testCorrectMessage('docs(JIRA-123): Description'),
+    );
+
+    test(
       'when there is a correctly pr title with breaking changes',
       testCorrectMessage('feat(JIRA-123)!: Description'),
     );

@@ -8,6 +8,13 @@ class: invert
 
 ---
 
+## Who am I?
+
+Pedro Zaroni,
+Tech Lead @ **QuintoAndar**
+
+---
+
 # Agenda
 
 - ***What*** is a CLI?
@@ -18,11 +25,11 @@ class: invert
 
 # What is a **CLI**?
 
-A tool that knows how to execute one or more commands and may accept extra arguments for customization.
+A command line program that accepts text input to perform some processing and may return some output.
 
 ---
 
-###### What is a **CLI**?
+## What is a **CLI**?
 
 ## Examples
 
@@ -37,32 +44,41 @@ A tool that knows how to execute one or more commands and may accept extra argum
 
 ---
 
-###### ***When ...***
+## ***When ...***
 
 ... we need to **mix many commands** and/or scripts together in a relatively **complex** way
 
 ---
 
-###### ***When ...***
+## ***When ...***
 
 ... we have one or more **script that is shared** between many projects and teams and we need to keep it always up to date for all of them
 
 ---
 
-###### ***When ...***
+## ***When ...***
 
 ... we want to easily **add automated tests** to our scripts
 
 ---
-###### ***When ...***
+## ***When ...***
 
 ... we want to provide a single and **easy-to-find hub of tooling** to all team members
 
 ---
+## ***When ...***
 
-###### ***When ...***
+... we want to create plug-and-play automations
 
-... we want to **boost knowledge sharing** across teams
+
+---
+
+## Real world examples
+
+- linter for conventional commits
+- any sort of guardrail logic for PRs (linters etc)
+- release process automations
+- abstraction to run e2e tests
 
 ---
 
@@ -74,16 +90,23 @@ A tool that knows how to execute one or more commands and may accept extra argum
 
 ---
 
-# References
+# References & further reading
 
-- [command-line interface (CLI)][1]
-- [marp gist][2] (the tool used for these slides)
-- [very_good_cli][3] (used for generating this template and also as a code reference on how to code a CLI)
+- [marp gist][1] (the tool used for these slides)
+- [very_good_cli][2] (used for generating this template and also as a code reference on how to code and test a CLI)
+- [Generate a Dart CLI with Very Good CLI][3]
 
 ---
 
-# shutting down... 👋🤖
+# Repo with demo and slides
 
-[1]: https://www.techtarget.com/searchwindowsserver/definition/command-line-interface-CLI#:~:text=The%20MS%2DDOS%20operating%20system,can%20support%20command%2Dline%20interfaces.
-[2]: https://gist.github.com/yhatt/a7d33a306a87ff634df7bb96aab058b5
-[3]: https://github.com/VeryGoodOpenSource/very_good_cli
+
+![width:400px height:400px](assets/repo_qr_code.png)
+
+---
+
+# $ shutdown -h now 👋🤖
+
+[1]: https://gist.github.com/yhatt/a7d33a306a87ff634df7bb96aab058b5
+[2]: https://github.com/VeryGoodOpenSource/very_good_cli
+[3]: https://verygood.ventures/blog/generate-command-line-application-cli
