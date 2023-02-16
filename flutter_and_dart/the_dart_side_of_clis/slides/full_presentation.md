@@ -8,14 +8,14 @@ class: invert
 
 ---
 
-## Who am I?
+## **Who am I?**
 
 Pedro Zaroni,
 Tech Lead @ **QuintoAndar**
 
 ---
 
-# Agenda
+# **Agenda**
 
 - ***What*** is a CLI?
 - ***When*** it makes sense to create a custom one?
@@ -52,7 +52,7 @@ A command line program that accepts text input to perform some processing and ma
 
 ## ***When ...***
 
-... we have one or more **script that is shared** between many projects and teams and we need to keep it always up to date for all of them
+... we have one or more **scripts that are shared** between many projects and teams and we need to keep it always up to date for all of them
 
 ---
 
@@ -70,15 +70,24 @@ A command line program that accepts text input to perform some processing and ma
 
 ... we want to create plug-and-play automations
 
+---
+## ***When ...***
+
+... we want to make it easier to define ownership on the scripts we have
+
+---
+## ***When ...***
+
+... we want to have a more familiar API to work with when creating automations to our processes
 
 ---
 
-## Real world examples
+## **Real world examples**
 
-- linter for conventional commits
+- faster machine setup for new hires
 - any sort of guardrail logic for PRs (linters etc)
 - release process automations
-- abstraction to run e2e tests
+- easily run e2e tests on some device farm
 
 ---
 
@@ -95,8 +104,8 @@ A command line program that accepts text input to perform some processing and ma
 - very_good_cli as starting point
 - args package
 - mason_logger
-- _Cmd and CLIs structure
-- UX is important
+- Cmd and CLIs structure
+- Helper methods for unit testing
 
 ---
 
