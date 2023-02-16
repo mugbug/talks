@@ -80,6 +80,17 @@ $ make lcov
 
 ---
 
+# References
+
+- [marp gist][1] (the tool used for these slides)
+- [very_good_cli][2] (used for generating the template and also as a code reference on how to code and test a CLI)
+- [Generate a Dart CLI with Very Good CLI][3]
+
+
+[1]: https://gist.github.com/yhatt/a7d33a306a87ff634df7bb96aab058b5
+[2]: https://github.com/VeryGoodOpenSource/very_good_cli
+[3]: https://verygood.ventures/blog/generate-command-line-application-cli
+
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
 [very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
