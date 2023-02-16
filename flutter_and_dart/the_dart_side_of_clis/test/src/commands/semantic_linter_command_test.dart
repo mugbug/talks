@@ -6,12 +6,11 @@ import '../../helpers/setup_helper.dart';
 
 void main() {
   group('semantic_linter', () {
-    void Function() testCorrectMessage(String message) {
+    Future<void> testCorrectMessage(String message) {
       return withRunner(
         (
           commandRunner,
           mocks,
-          printLogs,
         ) async {
           final exitCode = await commandRunner.run(
             [
@@ -38,12 +37,11 @@ void main() {
       );
     }
 
-    void Function() testIncorrectPrTitle(String message) {
+    Future<void> testIncorrectPrTitle(String message) {
       return withRunner(
         (
           commandRunner,
           mocks,
-          printLogs,
         ) async {
           const prNumber = '123';
           const author = 'gh-actions-bot';
@@ -111,51 +109,49 @@ The PR title message does not match the conventions. Try renaming it to follow t
 
     test(
       'when there is a correctly pr title for "fix"',
-      testCorrectMessage('fix(JIRA-123): Description'),
+      () => testCorrectMessage('fix(JIRA-123): Description'),
     );
 
     test(
       'when there is a correctly pr title for "feat"',
-      testCorrectMessage('feat(JIRA-123): Description'),
+      () => testCorrectMessage('feat(JIRA-123): Description'),
     );
 
     test(
       'when there is a correctly pr title for "docs"',
-      testCorrectMessage('docs(JIRA-123): Description'),
+      () => testCorrectMessage('docs(JIRA-123): Description'),
     );
 
     test(
       'when there is a correctly pr title with breaking changes',
-      testCorrectMessage('feat(JIRA-123)!: Description'),
+      () => testCorrectMessage('feat(JIRA-123)!: Description'),
     );
 
     test(
       'when there is no type',
-      testIncorrectPrTitle('(JIRA-123): Description'),
+      () => testIncorrectPrTitle('(JIRA-123): Description'),
     );
 
     test(
       'when there is no ticket',
-      testIncorrectPrTitle('feat: Description'),
+      () => testIncorrectPrTitle('feat: Description'),
     );
 
     test(
       'when there is no description',
-      testIncorrectPrTitle('feat(JIRA-123)'),
+      () => testIncorrectPrTitle('feat(JIRA-123)'),
     );
 
     test(
       'when there is an invalid type',
-      testIncorrectPrTitle('type(JIRA-123): Description'),
+      () => testIncorrectPrTitle('type(JIRA-123): Description'),
     );
 
-    test(
-      'wrong usage',
-      withRunner(
+    test('wrong usage', () async {
+      await withRunner(
         (
           commandRunner,
           mocks,
-          printLogs,
         ) async {
           const helpMessage = '''
 Usage: the_dart_side_of_clis semantic_linter [arguments]
@@ -179,7 +175,7 @@ Run "the_dart_side_of_clis help" to see global options.''';
             () => mocks.logger.info(helpMessage),
           ).called(1);
         },
-      ),
-    );
+      );
+    });
   });
 }

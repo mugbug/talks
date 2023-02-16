@@ -40,31 +40,14 @@ class MockContainer {
   final _MockPubUpdater pubUpdater;
 }
 
-void Function() _overridePrint(void Function(List<String>) fn) {
-  return () {
-    final printLogs = <String>[];
-    final spec = ZoneSpecification(
-      print: (_, __, ___, String msg) {
-        printLogs.add(msg);
-      },
-    );
-
-    return Zone.current
-        .fork(specification: spec)
-        .run<void>(() => fn(printLogs));
-  };
-}
-
 typedef WithRunnerCallback = FutureOr<void> Function(
   TheDartSideOfClisCommandRunner commandRunner,
   MockContainer mocks,
-  List<String> printLogs,
 );
 
-void Function() withRunner(
+Future<void> withRunner(
   WithRunnerCallback runnerFn,
-) {
-  return _overridePrint((printLogs) async {
+) async {
     final mocks = MockContainer(
       logger: _MockLogger(),
       progress: _MockProgress(),
@@ -92,9 +75,7 @@ void Function() withRunner(
     await runnerFn(
       commandRunner,
       mocks,
-      printLogs,
     );
-  });
 }
 
 /// Stream that will emit commands called by the shell.

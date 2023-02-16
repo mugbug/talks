@@ -35,7 +35,7 @@ A command line program that accepts text input to perform some processing and ma
 
 - flutter
 - dart
-- very_good
+- very_good_cli
 - flutterfire
 
 ---
@@ -87,6 +87,16 @@ A command line program that accepts text input to perform some processing and ma
 ---
 
 # 👩‍💻 It's **cooode** time!
+
+---
+
+# Wrap up
+
+- very_good_cli as starting point
+- args package
+- mason_logger
+- _Cmd and CLIs structure
+- UX is important
 
 ---
 

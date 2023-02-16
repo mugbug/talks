@@ -6,9 +6,8 @@ import '../../helpers/setup_helper.dart';
 
 void main() {
   group('open_url', () {
-    test(
-      'should open url correctly',
-      withRunner((commandRunner, mocks, printLogs) async {
+    test('should open url correctly', () async {
+      await withRunner((commandRunner, mocks) async {
         const expectedUrl = 'shoebox://';
 
         when(() => mocks.xcrun.openUrl(any())).thenAnswer(
@@ -28,12 +27,11 @@ void main() {
             'Launched $expectedUrl on iOS simulator',
           ),
         ).called(1);
-      }),
-    );
+      });
+    });
 
-    test(
-      'may fail opening url',
-      withRunner((commandRunner, mocks, printLogs) async {
+    test('may fail opening url', () async {
+      await withRunner((commandRunner, mocks) async {
         const expectedUrl = 'shoebox://';
 
         when(() => mocks.xcrun.openUrl(any())).thenAnswer(
@@ -53,7 +51,7 @@ void main() {
             'Error launching $expectedUrl',
           ),
         ).called(1);
-      }),
-    );
+      });
+    });
   });
 }
