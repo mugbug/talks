@@ -25,7 +25,7 @@ Tech Lead @ **QuintoAndar**
 
 # What is a **CLI**?
 
-A tool that knows how to execute one or more commands and may accept extra arguments for customization.
+A command line program that accepts text input to perform some processing and may return some output.
 
 ---
 
@@ -70,11 +70,6 @@ A tool that knows how to execute one or more commands and may accept extra argum
 
 ... we want to create plug-and-play automations
 
----
-
-## ***When ...***
-
-... we want to **boost knowledge sharing** across teams
 
 ---
 
@@ -103,7 +98,14 @@ A tool that knows how to execute one or more commands and may accept extra argum
 
 ---
 
-# shutting down... 👋🤖
+# Repo with demo and slides
+
+
+![width:400px height:400px](assets/repo_qr_code.png)
+
+---
+
+# $ shutdown -h now 👋🤖
 
 [1]: https://gist.github.com/yhatt/a7d33a306a87ff634df7bb96aab058b5
 [2]: https://github.com/VeryGoodOpenSource/very_good_cli
