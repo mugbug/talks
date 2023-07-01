@@ -18,6 +18,12 @@ This project contains 3 flavors:
 - staging
 - production
 
+First, install dependencies and generate json serialization code:
+
+```sh
+$ melos run setup && melos run build_runner --no-select
+```
+
 To run the desired flavor either use the launch configuration in VSCode/Android Studio or use the following commands:
 
 ```sh

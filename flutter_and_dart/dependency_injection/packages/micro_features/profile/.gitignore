@@ -15,9 +15,6 @@
 *.iws
 .idea/
 
-# VSCode related
-.vscode/
-
 # Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
@@ -28,6 +25,9 @@
 .pub-cache/
 .pub/
 /build/
+/coverage
+test/**/failures
+.fvm/flutter_sdk
 
 # Web related
 lib/generated_plugin_registrant.dart
@@ -38,5 +38,36 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
-# Test related
-coverage
+# Exceptions to above rules.
+!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+/ios/Flutter/.last_build_id
+
+# Android related
+android/fastlane/report.xml
+android/.project
+android/.settings/org.eclipse.buildship.core.prefs
+android/app/.classpath
+android/app/.project
+android/app/.settings/org.eclipse.buildship.core.prefs
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+**/android/key.properties
+*.jks
+
+# Intl auto-generated files
+lib/l10n/*.dart 
+
+# Code gen
+.mason/
+*.mocks.dart
+*.g.dart
+*.config.dart
+**/generated/**
+
+# Drone
+vault-credentials

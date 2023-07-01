@@ -9,3 +9,7 @@ scripts:
   setup:
     exec: flutter pub get
 
+  build_runner:
+    exec: flutter pub run build_runner build --delete-conflicting-outputs
+    packageFilters:
+      dependsOn: 'build_runner'

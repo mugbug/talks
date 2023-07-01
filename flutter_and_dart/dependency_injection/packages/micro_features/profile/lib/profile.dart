@@ -1,4 +1,4 @@
-/// A Very Good Project created by Very Good CLI.
 library profile;
 
-export 'src/profile.dart';
+export 'src/profile_composition_root.dart';
+export 'src/features/profile/presentation/screens/profile_screen.dart';

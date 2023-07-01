@@ -1,4 +1,4 @@
-import 'package:dependency_injection/counter/counter.dart';
+import 'package:dependency_injection/di/app_composition_root.dart';
 import 'package:dependency_injection/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +16,7 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      home: AppCompositionRoot().makeTabbarScreen(),
     );
   }
 }

@@ -1,20 +1,31 @@
 name: profile
-description: A Very Good Project created by Very Good CLI.
-version: 0.1.0+1
+description: The profile feature
+version: 0.0.1
 publish_to: none
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: 3.10.0
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.2'
 
 dependencies:
+  equatable: ^2.0.3
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.1
+  http: ^0.13.1
   http_client:
     path: ../../core/http_client
+  json_annotation: ^4.7.0
+  meta: ^1.7.0
 
 dev_dependencies:
+  bloc_test: ^9.0.0
+  build_runner: ^2.2.0
   flutter_test:
     sdk: flutter
+  json_serializable: ^6.2.0
   mocktail: ^0.3.0
-  very_good_analysis: ^5.0.0
+  test: ^1.16.0
+
+flutter:
+  uses-material-design: true

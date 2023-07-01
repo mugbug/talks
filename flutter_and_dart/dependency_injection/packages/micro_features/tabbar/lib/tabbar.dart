@@ -1,4 +1,4 @@
-/// A Very Good Project created by Very Good CLI.
 library tabbar;
 
-export 'src/tabbar.dart';
+export 'src/tabbar_composition_root.dart';
+export 'src/features/tabbar/presentation/screens/tabbar_screen.dart';
