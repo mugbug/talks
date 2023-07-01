@@ -1,0 +1,11 @@
+name: dependency_injection_example
+
+packages:
+  - packages/core/*
+  - packages/micro_features/*
+  - .
+
+scripts:
+  setup:
+    exec: flutter pub get
+
