@@ -1,16 +1,14 @@
+import 'package:mocktail/mocktail.dart';
 import 'package:profile/src/features/profile/business_logic/use_case/profile_use_case.dart';
 import 'package:profile/src/features/profile/data/repositories/profile_repository.dart';
-import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 
 import '../../fixtures/profile_dto_fixture.dart';
 
-class _MockProfileRepository extends Mock
-    implements ProfileRepository {}
+class _MockProfileRepository extends Mock implements ProfileRepository {}
 
 void main() {
   group('ProfileUseCase >', () {
-    const fakeId = 123;
     final repositoryMock = _MockProfileRepository();
     late ProfileUseCase sut;
 

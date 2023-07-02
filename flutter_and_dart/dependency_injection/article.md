@@ -32,7 +32,7 @@ class AppCompositionRoot implements TabBarExternalCompositionRoot {
 }
 
 // tabbar module
-abstract class TabBarExternalCompositionRoot implements HomeFeatureExternalCompositionRoot {
+abstract class TabBarExternalCompositionRoot implements HomeExternalCompositionRoot {
 
 }
 
@@ -43,20 +43,20 @@ class TabBarCompositionRoot {
 
   final TabBarExternalCompositionRoot dependencies;
 
-  HomeFeature makeHome() => HomeFeature(dependencies: dependencies);
+  Home makeHome() => Home(dependencies: dependencies);
 }
 
 // home module
-abstract class HomeFeatureExternalCompositionRoot {
+abstract class HomeExternalCompositionRoot {
   HttpClient makeHttpClient();
 }
 
-class HomeFeatureCompositionRoot {
-  HomeFeatureCompositionRoot({
+class HomeCompositionRoot {
+  HomeCompositionRoot({
     required this.dependencies,
   });
   
-  final HomeFeatureExternalCompositionRoot dependencies;
+  final HomeExternalCompositionRoot dependencies;
 
   HomeScreen makeScreen() => HomeScreen(bloc: makeBloc());
 

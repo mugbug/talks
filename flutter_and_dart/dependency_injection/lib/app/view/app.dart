@@ -1,5 +1,5 @@
-import 'package:dependency_injection/di/app_composition_root.dart';
 import 'package:dependency_injection/l10n/l10n.dart';
+import 'package:dependency_injection/router/router.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -7,16 +7,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
-        colorScheme: ColorScheme.fromSwatch(
-          accentColor: const Color(0xFF13B9FF),
-        ),
-      ),
+    return MaterialApp.router(
+      routerConfig: createRouter(),
+      theme: ThemeData(useMaterial3: true),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: AppCompositionRoot().makeTabbarScreen(),
     );
   }
 }

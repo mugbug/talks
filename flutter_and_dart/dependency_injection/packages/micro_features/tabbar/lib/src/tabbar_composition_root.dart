@@ -1,9 +1,10 @@
+import 'package:go_router/go_router.dart';
+import 'package:http/http.dart';
 import 'package:tabbar/src/features/tabbar/business_logic/use_case/tabbar_use_case.dart';
 import 'package:tabbar/src/features/tabbar/data/data_source/tabbar_rest_data_source.dart';
 import 'package:tabbar/src/features/tabbar/data/repositories/tabbar_repository.dart';
 import 'package:tabbar/src/features/tabbar/presentation/bloc/tabbar_bloc.dart';
 import 'package:tabbar/src/features/tabbar/presentation/screens/tabbar_screen.dart';
-import 'package:http/http.dart';
 
 /// The package that will start this module should implement this
 /// abstract class returning the expected objects so we can use them here.
@@ -32,8 +33,11 @@ class TabbarCompositionRoot {
 
   final TabbarExternalCompositionRoot _externalCompositionRoot;
 
-  TabbarScreen makeScreen() {
-    return TabbarScreen(bloc: makeBloc());
+  TabbarScreen makeScreen({required StatefulNavigationShell navigationShell}) {
+    return TabbarScreen(
+      bloc: makeBloc(),
+      navigationShell: navigationShell,
+    );
   }
 
   TabbarBloc makeBloc() {
@@ -47,8 +51,7 @@ class TabbarCompositionRoot {
   }
 
   TabbarRepository makeRepository() {
-    return TabbarRepository(
-        tabbarRestDataSource: makeRestDataSource());
+    return TabbarRepository(tabbarRestDataSource: makeRestDataSource());
   }
 
   TabbarRestDataSource makeRestDataSource() {

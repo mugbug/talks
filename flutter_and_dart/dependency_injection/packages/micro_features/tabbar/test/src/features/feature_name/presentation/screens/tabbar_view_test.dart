@@ -2,15 +2,28 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:tabbar/src/features/tabbar/presentation/bloc/tabbar_bloc.dart';
 import 'package:tabbar/src/features/tabbar/presentation/screens/tabbar_screen.dart';
-import 'package:mocktail/mocktail.dart';
 
 import '../../../../../helpers/pump_app.dart';
+
+// ref: https://pub.dev/packages/mocktail#faqs
+mixin DiagnosticableToStringMixin on Object {
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return super.toString();
+  }
+}
 
 class _MockTabbarBloc extends Mock implements TabbarBloc {}
 
 class _FakeTabbarEvent extends Fake implements TabbarEvent {}
+
+class _FakeStatefulNavigationShell extends Fake
+    with DiagnosticableToStringMixin
+    implements StatefulNavigationShell {}
 
 void main() {
   group('TabbarScreen >', () {
@@ -31,12 +44,11 @@ void main() {
 
       testWidgets(
           'and button is tapped'
-          'then [TabbarButtonTapped] should be emitted',
-          (tester) async {
+          'then [TabbarButtonTapped] should be emitted', (tester) async {
         await tester.pumpApp(
           child: BlocProvider<TabbarBloc>.value(
             value: blocMock,
-            child: const TabbarView(),
+            child: TabbarView(navigationShell: _FakeStatefulNavigationShell()),
           ),
         );
 
@@ -62,7 +74,7 @@ void main() {
         await tester.pumpApp(
           child: BlocProvider<TabbarBloc>.value(
             value: blocMock,
-            child: const TabbarView(),
+            child: TabbarView(navigationShell: _FakeStatefulNavigationShell()),
           ),
         );
 
@@ -84,7 +96,7 @@ void main() {
         await tester.pumpApp(
           child: BlocProvider<TabbarBloc>.value(
             value: blocMock,
-            child: const TabbarView(),
+            child: TabbarView(navigationShell: _FakeStatefulNavigationShell()),
           ),
         );
 
